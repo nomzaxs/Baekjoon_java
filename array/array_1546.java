@@ -80,6 +80,7 @@ package Baekjoon_java.array;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.StringTokenizer;
 
 public class array_1546 {
     public static void main(String[] args) throws NumberFormatException, IOException{
@@ -87,11 +88,13 @@ public class array_1546 {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
 
         int n = Integer.parseInt(bf.readLine());
-        String[] array = bf.readLine().split(" ");
+        // String[] array = bf.readLine().split(" ");
+        
         int[] scoreArray = new int[n];
 
+        StringTokenizer st = new StringTokenizer(bf.readLine());
         for(int i = 0; i < n; i++){
-            scoreArray[i] = Integer.parseInt(array[i]);
+            scoreArray[i] = Integer.parseInt(st.nextToken());
         }
 
         fixScore(scoreArray);
