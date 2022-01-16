@@ -37,48 +37,39 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class array_4344 {
+public class PN_4344 {
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-
-        int num = Integer.parseInt(bf.readLine());
-            
-        for(int i = 0; i < num; i++){
-            testCase();
-        }
-    }
-
-    private static void testCase() throws IOException {
-        BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(bf.readLine());
-
-        int n = Integer.parseInt(st.nextToken());
+        StringTokenizer st;
         
-        if(n > 0){
-            int[] scoreArray = new int[n];
-            int totalScore = 0;
-            int aver = 0;
-            int count = 0;
-            int a = 0;
-
-
-            while(st.hasMoreTokens()){
-                scoreArray[a] = Integer.parseInt(st.nextToken());
-            
-                totalScore += scoreArray[a];
-
-                a++;
-            }
-
-            aver = totalScore / scoreArray.length;
-
-            for(int i = 0; i < scoreArray.length; i++){
-                if(aver < scoreArray[i]){
-                    count++;
-                }
-            }
-
-            System.out.println(String.format("%.3f",(((100 / (double)scoreArray.length) * count))) + "%");
+        int num = Integer.parseInt(bf.readLine());
+        
+        int[] arr;
+        
+        for(int i = 0; i < num; i++) {
+        	st = new StringTokenizer(bf.readLine()," ");
+        	
+        	int n = Integer.parseInt(st.nextToken());
+        	arr = new int[n];
+        	
+        	double sum = 0;
+        	
+        	for(int j = 0; j < n; j++) {
+        		int val = Integer.parseInt(st.nextToken());
+        		arr[j] = val;
+        		sum += val;
+        	}
+        	
+        	double avg = (sum / n);
+        	double cnt = 0;
+        	
+        	for(int j = 0; j < n; j ++) {
+        		if(arr[j] > avg) cnt++;
+        	}
+        	
+        	System.out.println(String.format("%.3f", (cnt/n) * 100) + "%");
         }
+        
+        
     }
 }

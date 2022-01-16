@@ -82,7 +82,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
-public class array_1546 {
+public class PN_1546 {
     public static void main(String[] args) throws NumberFormatException, IOException{
 
         BufferedReader bf = new BufferedReader(new InputStreamReader(System.in));
