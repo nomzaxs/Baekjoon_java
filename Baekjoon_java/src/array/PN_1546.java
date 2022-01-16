@@ -75,7 +75,7 @@ limit_time : 2s, limit_memory : 128MB
 55.55555555555556
 ***************************************************************************************************/
 
-package Baekjoon_java.array;
+package array;
 
 import java.io.BufferedReader;
 import java.io.IOException;
