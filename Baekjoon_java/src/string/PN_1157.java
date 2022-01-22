@@ -37,6 +37,8 @@ baaa
 A
 ***************************************************************************************************/
 
+// 불필요한 alpha배열 없애 메모리 줄이기 (22.01.22) 
+
 package string;
 
 import java.io.BufferedReader;
@@ -49,16 +51,16 @@ public class PN_1157 {
         int[] alpha = new int[26];
         
 
-        char[] word = bf.readLine().toCharArray();
+        String word = bf.readLine();
 
         // word의 알파벳 갯수 alpha 배열에 값으로 정렬
-        for(int i = 0; i < word.length; i++){
-            if(word[i] >= 'a'){
+        for(int i = 0; i < word.length(); i++){
+            if(word.charAt(i) >= 'a'){
                 // ascii code 'a' = 97
-                alpha[word[i] - 'a']++;
+                alpha[word.charAt(i) - 'a']++;
             } else{
                 // ascii code 'A' = 65
-                alpha[word[i] - 'A']++;
+                alpha[word.charAt(i) - 'A']++;
             }
         }
 
