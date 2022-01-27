@@ -50,61 +50,46 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class PN_4948 {
+
+    // n의 제한됨 범위 까지의 크기 선언
+    public static ArrayList<Boolean> primeList = new ArrayList<Boolean>(246913);
     public static void main(String[] args) throws NumberFormatException, IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-
-        int n = Integer.parseInt(br.readLine());
-        int lastNum = 2;
-        int count = 0;
-
-        ArrayList<Boolean> primeList = new ArrayList<Boolean>();
-
-        // 0, 1 소수가 아님 처리
+        
+        // 0, 1번째를 소수 아님으로 처리
         primeList.add(false);
         primeList.add(false);
 
-        while(n != 0){
-            
-            // 전에 입력한 수보다 작은 경우
-            if(n < lastNum){
-                for(int i = 2; i < n * 2 + 1; i++){
-                    primeList.add(true);
-                }
+        // 2부터 소수로 설정
+        for(int i = 2; i < 246913; i++){
+            primeList.add(i, true);
+        }
 
-                for(int i = 2; i < n * 2 + 1; i++){
-                    if(primeList.get(i)){
-                        for(int j = i * 2; j < n * 2 + 1; j += i){
-                            primeList.set(j, false);
-                        }
-                    }
-                }
-            } else {    // 전에 입력한 수보다 큰 경우 큰 수만큼 사용
-                for(int i = lastNum; i < n * 2 + 1; i++){
-                    primeList.add(true);
-                }
-
-                for(int i = 2; i < n * 2 + 1; i++){
-                    if(primeList.get(i)){
-                        for(int j = i * 2; j < n * 2 + 1; j += i){
-                            primeList.set(j, false);
-                        }
-                    }
+        // 소수 판별
+        for(int i = 2; i <= Math.sqrt(primeList.size()); i++){
+            if(primeList.get(i)){
+                for(int j = i * 2; j < primeList.size(); j += i){
+                    primeList.set(j, false);
                 }
             }
+        }
+        
+        while(true){
+            int n = Integer.parseInt(br.readLine());
+            if(n == 0){
+                break;
+            }
 
-            for(int i = n + 1; i < n * 2 + 1; i++){
-                
-                if(primeList.get(i)){
+            int count = 0;
+
+            // n 초과 2n이하의 소수 개수 구하기
+            for(int i = n + 1; i < 2 * n + 1; i++) {
+                if(primeList.get(i)) {
                     count++;
                 }
             }
-
+            
             System.out.println(count);
-
-            count = 0;
-            lastNum = n;
-
-            n = Integer.parseInt(br.readLine());
         }
     }
 }
