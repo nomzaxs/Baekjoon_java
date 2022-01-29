@@ -48,37 +48,45 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class PN_2304 {
-    static int[][] arr = new int[1001][2];
-    static int N = 0;
-    public static void main(String[] args) throws NumberFormatException, IOException {
+    public static void main(String[] args) throws IOException{
         
-
+        // 입력 받기
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st;
-
-        N = Integer.parseInt(br.readLine());
-        int L;
-        int H;
-
-        int high;
-        int nhigh;
-        int n = 0;
-
-        // arr 배열 초기화
-        for(int i = 0; i < N; i++){
-            st = new StringTokenizer(br.readLine(), " ");
-            L = Integer.parseInt(st.nextToken());
-            H = Integer.parseInt(st.nextToken());
-            arr[i][0] = L;
-            arr[i][1] = H;
+        
+        int n = Integer.parseInt(br.readLine());
+        int[] arr = new int[1001];
+        
+        for(int i=0;i<n;i++) {
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int idx = Integer.parseInt(st.nextToken());
+            int height = Integer.parseInt(st.nextToken());
+            
+            arr[idx] = height;
         }
-
-        for(int i = 0; i < N; i++){
-            if(arr[i][1] > n){
-                n = arr[i][1];
+        
+        int leftIdx = 0;
+        int rightIdx = 1000;
+        
+        int leftMax = 0;
+        int rightMax = 0;
+        
+        int volume = 0;
+        
+        while(leftIdx <=rightIdx) {
+            
+            leftMax = Math.max(leftMax, arr[leftIdx]);
+            rightMax = Math.max(rightMax, arr[rightIdx]);
+            
+            if (leftMax < rightMax) {
+                volume += leftMax;
+                leftIdx++;
+                
+            } else {
+                volume += rightMax;
+                rightIdx--;
             }
         }
-
-
+        
+        System.out.println(volume);
     }
 }
