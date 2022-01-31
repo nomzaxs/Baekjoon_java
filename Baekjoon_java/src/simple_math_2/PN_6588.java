@@ -76,8 +76,8 @@ public class PN_6588 {
     }
 
     private static void primeNum(int num) {
-        int l = num / 2;
-        int r = num / 2;
+        int l = 3;
+        int r = num - 1;
         int minl = 0;
         int maxr = 0;
 
@@ -86,20 +86,15 @@ public class PN_6588 {
             if(Prime[l] == false && Prime[r] == false && l + r == num){
                 minl = l;
                 maxr = r;
-                l--;
-                r++;
-            } else{
+                break;
+            } else {
                 // 더한 수가 더 크면 작은 수를 줄인다.
-                if(l + r > num){
-                    l--;
-                    if(l < 3){
-                        break;
-                    }
+                if(l == r){
+                    break;
+                } else if(l + r > num){
+                    r--;
                 } else{     // 더한 수가 더 작으면 큰 수를 키운다.
-                    r++;
-                    if(r >= num){
-                        break;
-                    }
+                    l++;
                 }
             }
         }
