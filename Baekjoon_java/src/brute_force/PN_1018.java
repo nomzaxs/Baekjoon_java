@@ -110,7 +110,6 @@ WBWWBWBBWWBW
 15
 ***************************************************************************************************/
 
-// 미해결 문제
 package brute_force;
 
 import java.io.BufferedReader;
@@ -126,42 +125,48 @@ public class PN_1018 {
         int N = Integer.parseInt(st.nextToken());
         int M = Integer.parseInt(st.nextToken());
 
-        char[][] chess = new char[N][M];
+        boolean[][] chess = new boolean[N][M];
 
-        int cntB = 0;
-        int cntW = 0;
-        int count = 0;
-        int min = 100;
 
-        for (int i = 0; i < N; i++) {
-            chess[i] = br.readLine().toCharArray();
+        for(int i = 0; i < N; i++) {
+            String s = br.readLine();
+            for(int j = 0; j < M; j++){
+                if(s.charAt(j) == 'B'){
+                    chess[i][j] = true;
+                } else{
+                    chess[i][j] = false;
+                }
+            }
         }
+        int min = 10000;
 
         for (int n = 0; n < N - 7; n++) {
             for (int m = 0; m < M - 7; m++) {
+                int b = 0;
+                int w = 0;
+
                 for (int i = n; i < n + 8; i++) {
                     for (int j = m; j < m + 8; j++) {
-                        if (chess[i][j] == 'W') {
-                            cntW++;
-                        } else {
-                            cntB++;
+                        if((i + j) % 2 == 0){
+                            // 흑으로 시작시
+                            if(chess[i][j]){
+                                w++;
+                            } else{     // 백으로 시작시
+                                b++;
+                            }
+                        } else{
+                            if(chess[i][j]){
+                                b++;
+                            }else{
+                                w++;
+                            }
                         }
                     }
-                    if (cntW > 4) {
-                        count += cntW - 4;
-                    }
-                    if (cntB > 4) {
-                        count += cntB - 4;
-                    }
-                    cntW = 0;
-                    cntB = 0;
                 }
-                System.out.println(count);
-                System.out.println();
-                if(min > count){
-                    min = count;
+
+                if(min > Math.min(b, w)){
+                    min = Math.min(b, w);
                 }
-                count = 0;
             }
         }
 
