@@ -45,7 +45,7 @@ hesitate
 
 // 시간 복잡도 개선 필요
 
-package array;
+package string;
 
 import java.io.BufferedReader;
 import java.io.IOException;
