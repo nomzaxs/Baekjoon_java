@@ -35,7 +35,7 @@ x, y, w, h는 정수
 161
 ***************************************************************************************************/
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

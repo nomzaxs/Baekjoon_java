@@ -29,7 +29,7 @@ limit_time : 2s, limit_memory : 256MB
 5 11
 ***************************************************************************************************/
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

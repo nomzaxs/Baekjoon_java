@@ -23,7 +23,7 @@ wrong
 right
 ***************************************************************************************************/
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

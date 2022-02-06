@@ -41,7 +41,7 @@ D(T1,T2) = |x1-x2| + |y1-y2|
 3528.000000
 ***************************************************************************************************/
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

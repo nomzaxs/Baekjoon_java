@@ -40,7 +40,7 @@ N의 소인수분해 결과를 한 줄에 하나씩 오름차순으로 출력한
 103
 ***************************************************************************************************/
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

@@ -26,7 +26,7 @@ M이상 N이하의 소수를 모두 출력하는 프로그램을 작성하시오
 // 에라토스테네시의 체 라는 소수를 찾는 알고리즘.
 // 소수의 곱을 구하려는 수의 제곱근의 배수들만 지워도 충분하다는 알고리즘이다.
 
-package simple_math_2;
+package math;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

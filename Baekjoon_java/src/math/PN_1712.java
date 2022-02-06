@@ -32,7 +32,7 @@ A, B, C가 주어졌을 때, 손익분기점을 구하는 프로그램을 작성
 2100000001
 ***************************************************************************************************/
 
-package simple_math_1;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

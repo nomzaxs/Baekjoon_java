@@ -33,7 +33,7 @@ ACM 호텔 매니저 지우는 손님이 도착하는 대로 빈 방을 배정�
 1203
 ***************************************************************************************************/
 
-package simple_math_1;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;

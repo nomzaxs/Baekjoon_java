@@ -19,7 +19,7 @@ limit_time : 1s, limit_memory : 256MB
 ***************************************************************************************************/
 
 // 22.01.23 미해결 수정 필요
-package simple_math_1;
+package math;
 
 import java.io.BufferedReader;
 import java.io.IOException;
