@@ -43,6 +43,7 @@ public class PN_2609 {
         System.out.println(LCM);
     }
 
+    // 최소공배수
     private static int lcm(int gcd, int num1, int num2) {
         num1 /= gcd;
         num2 /= gcd;
@@ -50,6 +51,7 @@ public class PN_2609 {
         return gcd * num1 * num2;
     }
 
+    // 최대공약수
     private static int gcd(int num1, int num2) {
         while(num1 != 0 && num2 != 0){
             if(num1 > num2){
