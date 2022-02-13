@@ -43,33 +43,32 @@ public class PN_1654 {
         int K = Integer.parseInt(st.nextToken());
         int N = Integer.parseInt(st.nextToken());
 
-        int[] lan = new int[K];
+        long[] lan = new long[K];
+        long sum = 0;
 
         for(int t = 0; t < K; t++){
             lan[t] = Integer.parseInt(br.readLine());
+            sum += lan[t];
         }
 
-        int max = lan[0];
+        long start = 1;
+        long end = sum / N;
 
-        for(int i = 1; i < lan.length; i++){
-            max = Math.max(max, lan[i]);
-        }
+        // 이분 탐색
+        while(start <= end){
+            long middle = (start + end) / 2;
+            long add = 0;
 
-        while(true){
-            int count = 0;
-
-            for(int i = 0; i < lan.length; i++){
-                if(max > 0){
-                    count += lan[i] / max;
-                }
+            for(long i : lan){
+                add += (i / middle);
             }
 
-            if(count < N){
-                System.out.println(max - 1);
-                break;
+            if(add < N){
+                end = middle - 1;
+            } else{
+                start = middle + 1;
             }
-
-            max--;
         }
+        System.out.println(end);
     }
 }
