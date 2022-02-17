@@ -69,7 +69,7 @@ public class PN_1065 {
 
     private static void han(int n) {
         int count = 0;
-        ArrayList arrNum = new ArrayList<>();
+        ArrayList<Integer> arrNum = new ArrayList<>();
 
         for(int i = 1; i <= n; i++){
             int num = i;
