@@ -42,45 +42,30 @@ public class PN_1011 {
 
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        StringBuilder sb = new StringBuilder();
 
         int T = Integer.parseInt(br.readLine());
 
-        for(int t = 0; t < T; t++){
+        for (int t = 0; t < T; t++) {
             StringTokenizer st = new StringTokenizer(br.readLine());
 
             int x = Integer.parseInt(st.nextToken());
             int y = Integer.parseInt(st.nextToken());
-            
+
             int length = y - x;
-            int dis = 0;
 
-            // 거리가 짝수 일 때
-            if(length % 2 == 0){
-                for(int i = 1; dis < length / 2 - 1; i++){
-                    dis += i;
+            int max = (int) Math.sqrt(length);
 
-                    if(dis == length / 2 + 1){
-                        System.out.println(i * 2 - 1);
-                    } else if(dis == length / 2){
-                        System.out.println(i * 2);
-                    } else if(dis == length / 2 - 1){
-                        System.out.println(i * 2 + 1);
-                    }
-                }
-            }
-
-            // 거리가 홀수 일 때
-            for(int i = 1; dis < length / 2 - 1; i++){
-                dis += i;
-
-                if(dis == length / 2 + 1){
-                    System.out.println(i * 2 - 1);
-                } else if(dis == length / 2){
-                    System.out.println(i * 2);
-                } else if(dis == length / 2 - 1){
-                    System.out.println(i * 2 + 1);
-                }
+            if (max == Math.sqrt(length)) {
+                sb.append(max * 2 - 1).append('\n');
+            } else if (length <= max * max + max) {
+                sb.append(max * 2).append('\n');
+            } else {
+                sb.append(max * 2 + 1).append('\n');
             }
         }
+
+        sb.setLength(sb.length() - 1);
+        System.out.println(sb);
     }
 }
