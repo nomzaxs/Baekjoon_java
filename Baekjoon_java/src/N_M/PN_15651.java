@@ -74,6 +74,7 @@ limit_time : 1s, limit_memory : 512MB
 ***************************************************************************************************/
 
 // 22.01.23 시간 초과 수정 필요
+// 22.10.04 string builder를 사용해 시간 초과를 해결
 
 package N_M;
 
@@ -83,27 +84,27 @@ import java.io.InputStreamReader;
 import java.util.StringTokenizer;
 
 public class PN_15651 {
-
     static int N;
     static int M;
     static int[] arr;
+    static StringBuilder sb = new StringBuilder();
 
-    public static void recur(int cur){
-        if(cur == M){
-            for(int i = 0; i < M; i++){
-                System.out.print(arr[i] + " ");
+    public static void recur(int cur) {
+        if (cur == M) {
+            for (int i = 0; i < M; i++) {
+                sb.append(arr[i] + " ");
             }
-            System.out.println();
+            sb.append("\n");
             return;
         }
 
-        for(int i = 0; i < N; i++){
+        for (int i = 0; i < N; i++) {
             arr[cur] = i + 1;
             recur(cur + 1);
         }
 
     }
-    
+
     public static void main(String[] args) throws IOException {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
@@ -114,5 +115,8 @@ public class PN_15651 {
         arr = new int[N];
 
         recur(0);
+
+        sb.setLength(sb.length() - 1);
+        System.out.println(sb);
     }
 }
